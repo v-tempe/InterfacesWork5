@@ -30,7 +30,7 @@ def make_json_response(contact: Contact) -> dict:
 
 @app.route('/', methods=['GET'])
 def root():
-    return render_template('index.html')
+    return render_template('index.html'), 200
 
 
 @app.route('/contacts', methods=['POST'])
