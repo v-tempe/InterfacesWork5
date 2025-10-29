@@ -92,7 +92,7 @@ def update_item_fully(item_id):
     if set(contact_fields) != set(data.keys()):
         abort(400, 'Invalid data provided')
 
-    for field in contact_fields:
+    for field in data:
         setattr(contact, field, data[field])
     db.session.commit()
     return jsonify(make_json_response(contact))
