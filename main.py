@@ -62,7 +62,7 @@ def get_all_items():
 @app.route('/contacts/<int:item_id>', methods=['GET'])
 def get_item(item_id):
     contact = Contact.query.get_or_404(item_id)
-    return jsonify(make_json_response(contact))
+    return render_template('contacts/single.html', contact=make_json_response(contact))
 
 
 @app.route('/contacts/<int:item_id>', methods=['PATCH'])
