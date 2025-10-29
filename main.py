@@ -72,7 +72,7 @@ def update_item_partly(item_id):
     if not data:
         abort(400, 'No data provided')
     contact_fields = Contact.get_non_primary_columns()
-    if set(contact_fields) >= set(data.keys()):
+    if set(contact_fields) < set(data.keys()):
         abort(400, 'Invalid data provided')
 
     for field in data:
