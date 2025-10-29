@@ -53,7 +53,10 @@ def create_item():
 @app.route('/contacts', methods=['GET'])
 def get_all_items():
     contacts = Contact.query.all()
-    return jsonify([make_json_response(contact) for contact in contacts])
+    return render_template(
+        'contacts/index.html',
+        contacts=[make_json_response(contact) for contact in contacts]
+    ), 200
 
 
 @app.route('/contacts/<int:item_id>', methods=['GET'])
